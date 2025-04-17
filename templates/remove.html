@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Remove Games
+
+{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar">
+        <form action="/" method="get">
+        <button onclick="document.getElementById('gameForm').scrollIntoView({ behavior: 'smooth' });">Home</button>
+        </form>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Remove Game</h1>
+        </header>
+
+        <form action="/remove" method="post" enctype="multipart/form-data" class="game-form" id="gameForm">
+            <input type="text" id="gameTitle" placeholder="Game Title" name="remove" required />
+            <button type="submit">Remove Game</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='verify.js') }}"></script>
+    
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+    Video Games Database
+
+{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar">
+        <form action="/add" method="get">
+        <button onclick="document.getElementById('gameForm').scrollIntoView({ behavior: 'smooth' });">Add Game</button>
+        </form>
+        <form action="/remove" method="get"><button onclick="document.getElementById('gameForm').scrollIntoView({ behavior: 'smooth' });">Remove Game</button></form>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>The Video Game Library</h1>
+        </header>
+
+        <div class="site-description">
+            Welcome to the video game library — your go-to hub for discovering games across all genres, platforms, and styles. Whether you're searching for the latest releases, timeless classics, or hidden indie gems, our collection makes it easy to browse, explore, and learn more about the titles that spark your interest. Dive in and see what's currently in our ever-growing library of games!
+        </div>
+    </div>
+    
+    {% for game in games %}
+
+        <div class="game-card" value="{{ game.title }}">
+            <div class="game-title">{{ game.title }}</div>
+            <div class="game-platform">{{ game.platform }} ({{ game.year }})</div>
+            <img src="{{ file_location }}/{{ game.image }}" class="game-image"/>
+            <div class="game-description">{{ game.desc }}</div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
