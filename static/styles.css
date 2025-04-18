@@ -114,6 +114,7 @@ h1 {
 }
 
 .game-description {
+    margin-top: 10px;
     width: 256px;
     display: block;
 }
